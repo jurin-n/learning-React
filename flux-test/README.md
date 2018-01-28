@@ -4,8 +4,7 @@ https://github.com/MoonHighway/learning-react/blob/master/chapter-07/06-managing
 
 
 ### set up
-create-react-app flux
-cd flux
+create-react-app flux-test
 
 
 ### 参考
