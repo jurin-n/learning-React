@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux'
 import { items, sort } from './reducers'
 
+import {addItem, removeItem} from './actions'
+
 const initialState = {
     items:[
         {
@@ -85,4 +87,19 @@ store2.dispatch(
         title:"商品２０１"
     }
 )
+
+console.log("using action creater.")
+const store3 = createStore(
+    combineReducers({items,sort}),
+    initialState
+)
+console.log("addItem")
+store3.dispatch(addItem("ITEM301", "商品３０１"))
+store3.dispatch(addItem("ITEM302", "商品３０２"))
+console.log(store3.getState())
+
+console.log("removetem")
+store3.dispatch(removeItem("ITEM301"))
+console.log(store3.getState())
+
 ReactDOM.render(<div>test</div>, document.getElementById('root'));
