@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>テスト</title>
+    </head>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<body>
+<script type="text/babel">
+
+    const userLogs = userName => message =>
+        console.log(userName + ":" + message)
+
+    const log = userLogs("aaa")
+
+    const log2 = text => log("bb:" + text)
+
+    log2("ccc")
+    
+    const data = {a:"aa",b:"bb",c:"cc"};
+    console.log(data);
+    console.log(
+        {...data,
+        a:"xxxx"}
+    );
+    const aa = (...v) => (arg)
+        => console.log(arg);
+
+    aa(1,2,3);
+</script>
+</body>
+</html>
