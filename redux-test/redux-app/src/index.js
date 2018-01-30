@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createStore, combineReducers } from 'redux'
-import { items, sort } from './reducers'
+import { createStore, combineReducers} from 'redux'
+import { items, sort } from './store/reducers'
 
 import {addItem, removeItem} from './actions'
+
+import storeFactory from './store'
 
 const initialState = {
     items:[
@@ -98,8 +100,13 @@ store3.dispatch(addItem("ITEM301", "商品３０１"))
 store3.dispatch(addItem("ITEM302", "商品３０２"))
 console.log(store3.getState())
 
-console.log("removetem")
+console.log("removeItem")
 store3.dispatch(removeItem("ITEM301"))
 console.log(store3.getState())
+
+console.log("using middlewire")
+const store4 = storeFactory(true)
+store4.dispatch(addItem("ITEM301", "商品３０１"))
+console.log(store4.getState())
 
 ReactDOM.render(<div>test</div>, document.getElementById('root'));
