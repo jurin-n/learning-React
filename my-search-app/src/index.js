@@ -1,8 +1,15 @@
 import React from 'react';
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import App from './components/App'
+import storeFactory from './store'
 
-render(
-    <App />,
-    document.getElementById('react-container')
-)
+const store = storeFactory()
+
+const render = () =>
+    ReactDOM.render(
+        <App store={store}/>,
+        document.getElementById('react-container')
+    )
+
+store.subscribe(render)
+render()

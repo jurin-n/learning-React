@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import React, { PropTypes, Component } from 'react';
+//mport PropTypes from 'prop-types'
+import { searchItems,addItem } from '../actions'
 
-const SearchForm = ({onNewColor=f=>f}) =>{
+const SearchForm = ({store}) => {
     let _keyword
 
     const handleSubmit = e => {
         e.preventDefault()
-        onNewColor(_keyword.value)
+        //onNewColor(_keyword.value)
+        //store.dispatch(searchItems(_keyword.value))
+        store.dispatch(addItem("ITEM111","aaa"))
         _keyword.value = ''
         _keyword.focus()
     }
@@ -18,4 +21,5 @@ const SearchForm = ({onNewColor=f=>f}) =>{
         </form>
     )
 }
+
 export default SearchForm

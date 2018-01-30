@@ -5,21 +5,23 @@ import NavBar from './ui/NavBar'
 import SearchResult from './ui/SearchResult'
 import Whoops404 from './ui/Whoops404'
 
-class App extends Component {
-    render() {
-      return (
-        <HashRouter>
-          <div>
-              <NavBar />
-              <Switch>
-                <Route exact path="/" component={Top} />
-                <Route path="/result" component={SearchResult} />
-                <Route component={Whoops404} />
-              </Switch>
-          </div>
-        </HashRouter>
-      );
-    }
-}
+// const App = ({store}) => 
+//   <HashRouter>
+//     <div>
+//         <NavBar />
+//         <Switch>
+//           <Route exact path="/" component={
+//                                   (store)=><Top store={store}/>} />
+//           <Route path="/result" component={
+//                                   (store)=><SearchResult store={store}/>} />
+//           <Route component={Whoops404} />
+//         </Switch>
+//     </div>
+//   </HashRouter>
 
+const App = ({store}) => 
+    <div>
+        <NavBar />
+        <SearchResult store={store}/>
+    </div>
 export default App;
