@@ -1,15 +1,14 @@
-import React, { PropTypes, Component } from 'react';
-//mport PropTypes from 'prop-types'
-import { searchItems,addItem } from '../actions'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
+import { searchItems, addItem } from '../actions'
 
-const SearchForm = ({store}) => {
+const SearchForm = (props, {store}) => {
     let _keyword
 
     const handleSubmit = e => {
         e.preventDefault()
-        //onNewColor(_keyword.value)
-        //store.dispatch(searchItems(_keyword.value))
-        store.dispatch(addItem("ITEM111","aaa"))
+        //store.dispatch(addItem("ITEM111","aaa"))
+        searchItems({keyword:_keyword.value})(store.dispatch)
         _keyword.value = ''
         _keyword.focus()
     }
@@ -20,6 +19,10 @@ const SearchForm = ({store}) => {
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     )
+}
+
+SearchForm.contextTypes = {
+    store: PropTypes.object
 }
 
 export default SearchForm

@@ -1,27 +1,41 @@
-import React, { Component } from 'react';
-import { Route, HashRouter, Switch } from 'react-router-dom'
-import Top from './ui/Top'
+import React, { Component } from 'react'
 import NavBar from './ui/NavBar'
 import SearchResult from './ui/SearchResult'
-import Whoops404 from './ui/Whoops404'
+import PropTypes from 'prop-types'
 
-// const App = ({store}) => 
-//   <HashRouter>
-//     <div>
-//         <NavBar />
-//         <Switch>
-//           <Route exact path="/" component={
-//                                   (store)=><Top store={store}/>} />
-//           <Route path="/result" component={
-//                                   (store)=><SearchResult store={store}/>} />
-//           <Route component={Whoops404} />
-//         </Switch>
-//     </div>
-//   </HashRouter>
+class App extends Component {
 
-const App = ({store}) => 
-    <div>
-        <NavBar />
-        <SearchResult store={store}/>
-    </div>
-export default App;
+    getChildContext() {
+        return {
+            store: this.props.store
+        }
+    }
+
+    componentWillMount() {
+        this.unsubscribe = this.props.store.subscribe(
+            () => this.forceUpdate()
+        )
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe()
+    }
+    render() {
+        return (
+            <div>
+                <NavBar />
+                <SearchResult />
+            </div>
+        )
+    }
+}
+
+App.propTypes = {
+    store: PropTypes.object.isRequired
+}
+
+App.childContextTypes = {
+    store: PropTypes.object.isRequired
+}
+
+export default App
