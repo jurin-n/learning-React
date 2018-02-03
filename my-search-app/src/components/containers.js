@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types'
 import SearchForm from './ui/SearchForm'
 import { searchItems } from '../actions'
+import { connect } from 'react-redux'
 
-const SearchItems = (props, {store}) => 
-    <SearchForm onSearchItems={params => 
-                    searchItems(params)(store.dispatch)}/>
-
-SearchItems.contextTypes = {
-    store: PropTypes.object
-}
+const SearchItems = connect(
+    null,
+    dispatch => ({
+        onSearchItems(params){
+            searchItems(params)(dispatch)
+        }
+    })
+)(SearchForm)
 
 export default SearchItems
