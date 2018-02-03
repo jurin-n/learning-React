@@ -8,6 +8,7 @@ export const searchItems = condition => dispatch => {
     let url = 'https://ml.googleapis.com/$discovery/rest?version=v1'
     let method = 'GET'
     let body
+    console.log('actions.js searchItems :' + condition.keyword)
     fetch(url, {method,body,headers: { 'Content-Type': 'application/json' }})
         .then(parseResponse)
         .then(json => dispatch(listItems(json)))
