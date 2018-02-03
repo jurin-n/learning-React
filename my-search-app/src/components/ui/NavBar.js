@@ -1,5 +1,6 @@
 import React from 'react';
-import SearchForm from './SearchForm'
+//import SearchForm from './SearchForm'
+import SearchItem from '../containers'
 
 const NavBar = () => 
     <nav className="navbar navbar-light bg-light justify-content-between">
@@ -9,7 +10,7 @@ const NavBar = () =>
                     <a className="navbar-brand">テンテン市場</a>
                 </div>
                 <div>
-                    <SearchForm />
+                    <SearchItem />
                 </div>
             </div>
         </div>

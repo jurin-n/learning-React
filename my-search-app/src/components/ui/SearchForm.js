@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { searchItems, addItem } from '../../actions'
 
-const SearchForm = (props, {store}) => {
-    let _keyword
+const SearchForm = ({onSearchItems=f=>f}) => {
+        let _keyword
 
     const handleSubmit = e => {
         e.preventDefault()
-        //store.dispatch(addItem("ITEM111","aaa"))
-        searchItems({keyword:_keyword.value})(store.dispatch)
+        onSearchItems({keyword:_keyword.value})
         _keyword.value = ''
         _keyword.focus()
     }
@@ -21,8 +20,8 @@ const SearchForm = (props, {store}) => {
     )
 }
 
-SearchForm.contextTypes = {
-    store: PropTypes.object
+SearchForm.propTypes = {
+    onSearchItems: PropTypes.func
 }
 
 export default SearchForm
