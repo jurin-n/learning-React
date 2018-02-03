@@ -1,4 +1,4 @@
-import C from '../constants'
+import C from './constants'
 import fetch from 'isomorphic-fetch'
 
 const parseResponse = res => res.json()

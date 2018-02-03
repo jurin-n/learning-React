@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { searchItems, addItem } from '../actions'
+import { searchItems, addItem } from '../../actions'
 
 const SearchForm = (props, {store}) => {
     let _keyword
