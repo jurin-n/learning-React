@@ -12,9 +12,10 @@ class SearchForm extends Component {
     handleSubmit(e){
         const { _keyword } = this.refs
         const { onSearchItems, history } = this.props
+        const params = new URLSearchParams(this.props.location.search);
         e.preventDefault()
         history.push('/result')
-        onSearchItems({keyword:_keyword.value})
+        onSearchItems({keyword:_keyword.value, _k:params.get('_k')})
         _keyword.focus()
     }
 
