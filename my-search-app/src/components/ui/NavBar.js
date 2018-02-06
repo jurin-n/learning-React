@@ -7,7 +7,7 @@ const NavBar = () =>
         <div className="container-fluid">
             <div className="row">
                 <div>
-                    <a className="navbar-brand">テンテン市場</a>
+                    <a className="navbar-brand" href="/">テンテン市場</a>
                 </div>
                 <div>
                     <SearchItem />

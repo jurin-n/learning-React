@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import App from './components/App'
 import storeFactory from './store'
 import { Provider } from 'react-redux'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 const store = storeFactory()
 
@@ -12,9 +12,9 @@ window.store = store
 
 render(
     <Provider  store={store}>
-        <HashRouter>
+        <BrowserRouter>
             <App/>
-        </HashRouter>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('react-container')
 )
