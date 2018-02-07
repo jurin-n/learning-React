@@ -1,6 +1,6 @@
 import SearchForm from './ui/SearchForm'
 import App from './App'
-import { searchItems, replaceConditions, initCondition } from '../actions'
+import { searchItems, replaceConditions } from '../actions'
 import { connect } from 'react-redux'
 
 export const AppContainer = connect(

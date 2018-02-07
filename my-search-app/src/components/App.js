@@ -1,16 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NavBar from './ui/NavBar'
 import SearchResult from './ui/SearchResult'
 import Top from './ui/Top'
-import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
 class App extends React.Component{
-    constructor(props) {
-        super(props)
-    }
-
     componentWillMount(){
         const { initConditions,location } = this.props
         const params = new URLSearchParams(location.search);

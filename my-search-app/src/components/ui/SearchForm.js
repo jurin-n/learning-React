@@ -21,9 +21,9 @@ class SearchForm extends Component {
 
     render(){
         return (
-            <form class="form-inline" onSubmit={this.handleSubmit}>
-                <input ref="_keyword" class="form-control form-control-lg mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form className="form-inline" onSubmit={this.handleSubmit}>
+                <input ref="_keyword" className="form-control form-control-lg mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         )
     }
