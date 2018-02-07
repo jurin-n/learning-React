@@ -4,7 +4,8 @@ const constants = {
     GET_ITEM:"GET_ITEM",
     LIST_ITEMS:"LIST_ITEMS",
     SORT_ITEMS:"SORT_ITEMS",
-    SEARCH_ITEM:"SEARCH_ITEM"
+    SEARCH_ITEM:"SEARCH_ITEM",
+    REPLACE_CONDITION:"REPLACE_CONDITION"
 }
 
 export default constants

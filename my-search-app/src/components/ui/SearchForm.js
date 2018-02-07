@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import { searchItems, addItem } from '../../actions'
 import { withRouter } from 'react-router'
 
 class SearchForm extends Component {
@@ -11,11 +10,12 @@ class SearchForm extends Component {
 
     handleSubmit(e){
         const { _keyword } = this.refs
-        const { onSearchItems, history } = this.props
-        const params = new URLSearchParams(this.props.location.search);
+        const { onSearchItems, history, conditions} = this.props
+        const prevConditions = conditions
+
         e.preventDefault()
         history.push('/result')
-        onSearchItems({keyword:_keyword.value, _k:params.get('_k')})
+        onSearchItems('keyword', _keyword.value, prevConditions)
         _keyword.focus()
     }
 

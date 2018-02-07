@@ -1,9 +1,9 @@
 import { createStore, combineReducers} from 'redux'
-import { items, sort } from './reducers'
+import { items, sort, conditions } from './reducers'
 
 const storeFactory = (initialState) => 
     createStore(
-        combineReducers({items, sort}),
+        combineReducers({items, sort, conditions}),
         initialState?initialState:{}
     )
 

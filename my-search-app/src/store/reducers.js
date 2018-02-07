@@ -35,10 +35,19 @@ export const items = (state=[], action) => {
     }
 }
 
-export  const sort = (state="SORTED_BY_ID", action) => {
+export const sort = (state="SORTED_BY_ID", action) => {
     switch(action.type){
         case C.SORT_ITEMS:
             return action.sortBy
+        default:
+            return state
+    }
+}
+
+export const conditions = (state=[], action) => {
+    switch(action.type){
+        case C.REPLACE_CONDITION:
+            return action.condition
         default:
             return state
     }

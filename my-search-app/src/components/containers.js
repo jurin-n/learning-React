@@ -1,12 +1,21 @@
 import SearchForm from './ui/SearchForm'
-import { searchItems } from '../actions'
+import { searchItems, replaceConditions } from '../actions'
 import { connect } from 'react-redux'
 
 const SearchItems = connect(
-    null,
+    state => ({conditions:state.conditions}),
     dispatch => ({
-        onSearchItems(params){
-            searchItems(params)(dispatch)
+        onSearchItems(key, value, prevConditions){
+            const result = prevConditions.filter(i => i.key !== key)
+            const nextConditions = [
+                    ...result,
+                    {
+                        key:key,
+                        value:value
+                    }
+            ]
+            dispatch(replaceConditions(nextConditions))
+            searchItems(nextConditions)(dispatch)
         }
     })
 )(SearchForm)

@@ -5,10 +5,11 @@ const parseResponse = res => res.json()
 const logError = error => console.error(error)
 
 export const searchItems = condition => dispatch => {
+    console.log('searchItems')
+    console.log(condition)
     let url = 'https://ml.googleapis.com/$discovery/rest?version=v1'
     let method = 'GET'
     let body
-    console.log('actions.js searchItems :' + condition.keyword)
     fetch(url, {method,body,headers: { 'Content-Type': 'application/json' }})
         .then(parseResponse)
         .then(json => dispatch(listItems(json)))
@@ -32,4 +33,10 @@ export const removeItem = (id) =>
     ({
         type:C.REMOVE_ITEM,
         id:id
+    })
+
+export const replaceConditions = (nextConditions) => 
+    ({
+        type:C.REPLACE_CONDITION,
+        condition:nextConditions
     })
