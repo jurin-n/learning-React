@@ -1,8 +1,18 @@
 import SearchForm from './ui/SearchForm'
-import { searchItems, replaceConditions } from '../actions'
+import App from './App'
+import { searchItems, replaceConditions, initCondition } from '../actions'
 import { connect } from 'react-redux'
 
-const SearchItems = connect(
+export const AppContainer = connect(
+    state => ({conditions:state.conditions}),
+    dispatch => ({
+        initConditions(conditions){
+            dispatch(replaceConditions(conditions))
+        }
+    })
+)(App)
+
+export const SearchItems = connect(
     state => ({conditions:state.conditions}),
     dispatch => ({
         onSearchItems(key, value, prevConditions){
@@ -19,5 +29,3 @@ const SearchItems = connect(
         }
     })
 )(SearchForm)
-
-export default SearchItems
