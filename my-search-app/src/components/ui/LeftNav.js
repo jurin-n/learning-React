@@ -7,8 +7,14 @@ const LeftNav = () =>
                 タグ
             </div>
             <ul className="list-group list-group-flush">
-                <li className="list-group-item">あとで読む</li>
-                <li className="list-group-item">AWS</li>
+                <li className="active list-group-item d-flex justify-content-between align-items-center">
+                    あとで読む
+                    <span class="badge badge-pill">14</span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                    AWS
+                    <span class="badge badge-primary badge-pill">3</span>
+                </li>
             </ul>
         </div>
         <hr/>
