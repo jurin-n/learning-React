@@ -1,15 +1,21 @@
 import React from 'react';
 
-const LeftNav = () => 
+const LeftNav = ({selected=false}) => 
     <div className="left-nav card col-md-3 order-first">
         <div className="card">
             <div className="card-header">
                 タグ
             </div>
             <ul className="list-group list-group-flush">
-                <li className="active list-group-item d-flex justify-content-between align-items-center">
+                <li 
+                    className={
+                        (selected)?
+                            "active list-group-item d-flex justify-content-between align-items-center":
+                            "list-group-item d-flex justify-content-between align-items-center"
+                            }
+                >
                     あとで読む
-                    <span class="badge badge-pill">14</span>
+                    <span class="badge badge-primary badge-pill">14</span>
                 </li>
                 <li className="list-group-item d-flex justify-content-between align-items-center">
                     AWS

@@ -6,7 +6,7 @@ const SearchResult = () =>
     <div className="container-fluid">
         <div className="search-result row">
             <SearchedItems />
-            <LeftNav />
+            <LeftNav selected={false}/>
         </div>
     </div>
 
